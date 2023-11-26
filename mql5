@@ -1,0 +1,59 @@
+
+//+------------------------------------------------------------------+
+//|                                         LastStand NonGridHero.mq5 |
+//|                                Copyright 2021, Forex Robot Easy Team |
+//|                                  https://www.forexroboteasy.com    |
+//+------------------------------------------------------------------+
+
+// Grid System Function
+void OpenGridPositions(double lotSize, double gridDistance, bool openBothSides)
+{
+   // Open Buy Position
+   if(openBothSides || !openBothSides)
+      OrderSend(Symbol(), OP_BUY, lotSize, Ask, 0, 0, 0, 'Buy Order', 0, 0, CLR_NONE);
+
+   // Open Sell Position
+   if(openBothSides)
+      OrderSend(Symbol(), OP_SELL, lotSize, Bid, 0, 0, 0, 'Sell Order', 0, 0, CLR_NONE);
+}
+
+// Position Opening Preferences
+void OpenPositionsOnPreference(double lotSize, bool openBuySide)
+{
+   // Open Buy Position
+   if(openBuySide)
+      OrderSend(Symbol(), OP_BUY, lotSize, Ask, 0, 0, 0, 'Buy Order', 0, 0, CLR_NONE);
+   // Open Sell Position
+   else
+      OrderSend(Symbol(), OP_SELL, lotSize, Bid, 0, 0, 0, 'Sell Order', 0, 0, CLR_NONE);
+}
+
+// Minimize Potential Damages
+void MinimizeDamages()
+{
+   // Implement damage minimization algorithm here
+   // ...
+}
+
+// Set Up Instructions
+void SetUpInstructions()
+{
+   // Provide detailed instructions for LastStand NonGridHero setup
+   // ...
+}
+
+// Main Program
+void OnStart()
+{
+   // Set up LastStand NonGridHero
+   SetUpInstructions();
+
+   // Open Grid Positions
+   OpenGridPositions(0.1, 10, true);
+
+   // Open Positions on Preference
+   OpenPositionsOnPreference(0.1, true);
+
+   // Minimize Potential Damages
+   MinimizeDamages();
+}
